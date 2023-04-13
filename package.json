@@ -1,0 +1,31 @@
+{
+  "name": "ignite-solid-03",
+  "version": "1.0.0",
+  "description": "## RFs (Requisitos funcionais)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlperri/ignite-gympass-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nlperri/ignite-gympass-app/issues"
+  },
+  "homepage": "https://github.com/nlperri/ignite-gympass-app#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "fastify": "^4.15.0"
+  }
+}
