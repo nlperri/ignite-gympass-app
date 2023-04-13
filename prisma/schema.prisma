@@ -16,9 +16,32 @@ datasource db {
 // npm i @prisma/client => dependência de produção pra acessar o banco de dados
 
 model User {
-  id String @id @default(uuid())
-  name String
-  email String @unique
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
+  password_hash String 
+  created_at    DateTime @default(now())
+
+  // Hashing => não é possível descriptar a senha
 
   @@map("users")
+}
+
+model CheckIn {
+  id           String @id @default(uuid())
+  created_at   DateTime @default(now())
+  validated_at DateTime?
+
+  @@map("check_ins")
+}
+
+model Gym {
+  id          String @id @default(uuid())
+  title       String
+  description String?
+  phone       String?
+  latitude    Decimal
+  longitude   Decimal  
+
+  @@map("gyms")
 }
