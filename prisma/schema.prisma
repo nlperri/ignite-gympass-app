@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//model = table
+//@id = primare key
+// @@ => config da table
+// @ => config da coluna
+
+// npx prisma generate => cria de forma automatizada a tipagem do schema (integração com o TS)
+// npm i @prisma/client => dependência de produção pra acessar o banco de dados
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+
+  @@map("users")
+}
