@@ -14,34 +14,43 @@ datasource db {
 
 // npx prisma generate => cria de forma automatizada a tipagem do schema (integração com o TS)
 // npm i @prisma/client => dependência de produção pra acessar o banco de dados
+// Hashing => não é possível desencriptar a senha
 
 model User {
-  id            String @id @default(uuid())
+  id            String   @id @default(uuid())
   name          String
-  email         String @unique
-  password_hash String 
+  email         String   @unique
+  password_hash String
   created_at    DateTime @default(now())
 
-  // Hashing => não é possível descriptar a senha
+  checkIns CheckIn[]
 
   @@map("users")
 }
 
 model CheckIn {
-  id           String @id @default(uuid())
-  created_at   DateTime @default(now())
+  id           String    @id @default(uuid())
+  created_at   DateTime  @default(now())
   validated_at DateTime?
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  gym    Gym    @relation(fields: [gym_id], references: [id])
+  gym_id String
 
   @@map("check_ins")
 }
 
 model Gym {
-  id          String @id @default(uuid())
+  id          String  @id @default(uuid())
   title       String
   description String?
   phone       String?
   latitude    Decimal
-  longitude   Decimal  
+  longitude   Decimal
+
+  checkIns CheckIn[]
 
   @@map("gyms")
 }
