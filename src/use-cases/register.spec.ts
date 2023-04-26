@@ -31,7 +31,6 @@ describe('Register Use Case', () => {
 
     const isPasswordCorrectlyHashed = await compare(
       '123456',
-      // eslint-disable-next-line prettier/prettier
       user.password_hash
     )
 
@@ -52,7 +51,6 @@ describe('Register Use Case', () => {
         name: 'John Doe',
         email,
         password: '123456',
-        // eslint-disable-next-line prettier/prettier
       })
     ).rejects.toBeInstanceOf(UserAlreadyExistsError)
   })

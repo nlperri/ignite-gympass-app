@@ -35,7 +35,6 @@ describe('Authenticate Use Case', () => {
       sut.execute({
         email: 'johndoe@example.com',
         password: '123456',
-        // eslint-disable-next-line prettier/prettier
       })
     ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
@@ -51,7 +50,6 @@ describe('Authenticate Use Case', () => {
       sut.execute({
         email: 'johndoe@example.com',
         password: '123123',
-        // eslint-disable-next-line prettier/prettier
       })
     ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })

@@ -31,7 +31,6 @@ describe('Get User Profile Use Case', () => {
     await expect(() =>
       sut.execute({
         userId: 'non-existing-id',
-        // eslint-disable-next-line prettier/prettier
       })
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
