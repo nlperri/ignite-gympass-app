@@ -5,7 +5,6 @@ import { makeAuthenticateUseCase } from '@/use-cases/factories/make-authenticate
 
 export async function authenticate(
   request: FastifyRequest,
-  // eslint-disable-next-line prettier/prettier
   reply: FastifyReply
 ) {
   const authenticateBodySchema = z.object({
