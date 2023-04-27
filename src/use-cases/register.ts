@@ -19,9 +19,9 @@ export class RegisterUseCase {
   async execute({
     name,
     email,
-    password,
+    password
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
-    const password_hash = await hash(password, 6) // 6 rounds para gerar o hash (cada round dificulta o hash de ser descoberto, porém quanto mais round mais pesado para a aplicação)
+    const password_hash = await hash(password, 6)
 
     const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
@@ -32,11 +32,11 @@ export class RegisterUseCase {
     const user = await this.usersRepository.create({
       name,
       email,
-      password_hash,
+      password_hash
     })
 
     return {
-      user,
+      user
     }
   }
 }

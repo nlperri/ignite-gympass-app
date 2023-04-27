@@ -4,8 +4,6 @@ import { AuthenticateUseCase } from './authenticate'
 import { hash } from 'bcryptjs'
 import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
-// sut => system under test
-
 describe('Authenticate Use Case', () => {
   let usersRepository: InMemoryUsersRepository
   let sut: AuthenticateUseCase
@@ -35,7 +33,7 @@ describe('Authenticate Use Case', () => {
       sut.execute({
         email: 'johndoe@example.com',
         password: '123456',
-      })
+      }),
     ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
 
@@ -50,7 +48,7 @@ describe('Authenticate Use Case', () => {
       sut.execute({
         email: 'johndoe@example.com',
         password: '123123',
-      })
+      }),
     ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
 })
