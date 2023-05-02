@@ -50,3 +50,48 @@
 ## Hash
 
 - hash(password, 6) => 6 rounds para gerar o hash (cada round dificulta o hash de ser descoberto, porém quanto mais round mais pesado para a aplicação)
+
+## Vitest E2E
+
+- Criar pasta com nome vitest-environment-"nome"
+
+- npm init -y (criar package-json)
+
+- deletar scripts
+
+- criar pasta "nome"-test-environment.ts (nome tanto faz)
+
+- dentro do package, em "main": "nome-test-environment.ts"
+
+- no vitest.config adicionar ->
+
+test: {
+environmentMatchGlobs: [
+['src/http/controllers/**m','nome-colocado-depois-de-vitest-environment']
+]
+}
+
+- npm link (dentro da pasta vitest-environment)
+
+- na pasta raiz npm link vitest-environment-"nome"
+
+- criar spec dentro do controller ->
+
+import { Environment } from 'vitest'
+
+export default <Environment>{
+name: 'nome-colocado-depois-de-vitest-environment',
+async setup() {
+console.log('Setup')
+
+    return {
+      async teardown() {
+        console.log('Teardown')
+      },
+    }
+
+},
+}
+
+- setup => executa antes do teste
+- teardown => executa depois do teste
