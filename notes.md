@@ -59,7 +59,7 @@
 
 - deletar scripts
 
-- criar pasta "nome"-test-environment.ts (nome tanto faz)
+- criar arquivo "nome"-test-environment.ts (nome tanto faz)
 
 - dentro do package, em "main": "nome-test-environment.ts"
 
